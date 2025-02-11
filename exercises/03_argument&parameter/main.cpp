@@ -1,26 +1,20 @@
 #include "../exercise.h"
 
-// READ: <https://stackoverflow.com/questions/156767/whats-the-difference-between-an-argument-and-a-parameter>
-// THINK: 参数都有哪些传递方式？如何选择传递方式？
+// READ: 声明 <https://zh.cppreference.com/w/cpp/language/declarations>
+// NOTICE: cppreference 中的示例中指出了复杂声明的解读法，建议认真阅读。
+// NOTICE: 补充由内而外读法的机翻解释 <https://learn.microsoft.com/zh-cn/cpp/c-language/interpreting-more-complex-declarators?view=msvc-170>
+int add(int a, int b);
+// TODO: 在这里声明函数
 
-void func(int);
-
-// TODO: 为下列 ASSERT 填写正确的值
 int main(int argc, char **argv) {
-    auto arg = 99;
-    ASSERT(arg == ?, "arg should be ?");
-    std::cout << "befor func call: " << arg << std::endl;
-    func(arg);
-    ASSERT(arg == ?, "arg should be ?");
-    std::cout << "after func call: " << arg << std::endl;
+    ASSERT(add(123, 456) == 123 + 456, "add(123, 456) should be 123 + 456");
+
+    auto x = 1, y = 2;
+    std::cout << x << " + " << y << " = " << add(x, y) << std::endl;
     return 0;
 }
 
-// TODO: 为下列 ASSERT 填写正确的值
-void func(int param) {
-    ASSERT(param == ?, "param should be ?");
-    std::cout << "befor add: " << param << std::endl;
-    param += 1;
-    ASSERT(param == ?, "param should be ?");
-    std::cout << "after add: " << param << std::endl;
+int add(int a, int b) {
+    // TODO: 补全函数定义，但不要移动代码行
+    return a+b;
 }
